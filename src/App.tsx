@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 interface ChecklistItem {
+  category: string;
   name: string;
+  subname: string;
   agent: string;
   reviewer: string;
   comments: string;
@@ -18,103 +20,140 @@ const App: React.FC = () => {
   const initialChecklistState: ChecklistSection = {
     listing: [
       {
-        name: "Appraisals - Verbal appraisal provided",
+        category: "Appraisals",
+        name: "Verbal appraisal provided",
+        subname: "(Notes to be added on Box & Dice)",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Appraisals - Written appraisal provided",
+        category: "Appraisals",
+        name: "Written appraisal provided",
+        subname: "(Attach valuation email in sales file)",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Appraisals - Appraisal price supported by comparable sales / CMA report with notes",
+        category: "Appraisals",
+        name: "Appraisal price supported by comparable sales / CMA report with notes",
+        subname:
+          "(CMA reports need to be generated first to identify comparable sales which ascertain ESP. Ensure CMA dates must be before or the same day as the valuation email and / or authority generated.)",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Appraisals - Multiple appraisals conducted on the property in the last 12 months",
+        category: "Appraisals",
+        name: "Multiple appraisals conducted on the property in the last 12 months",
+        subname:
+          "(Attach any previous valuations, appraisals conducted on the property in the last 12 months)",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Sales Authority - Where a conjunctional listing both Corporate Licensee details included",
+        category: "Sales Authority",
+        name: "Where a conjunctional listing both Corporate Licensee details included",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Sales Authority - Auction details provided correctly",
+        category: "Sales Authority",
+        name: "Auction details provided correctly",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Sales Authority - Vendor’s reserve",
+        category: "Sales Authority",
+        name: "Vendor's reserve",
+        subname: "(Dated if provided after the signing of the authority)",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Sales Authority - Where conjunctional listing occurs commission sharing must be reflected on the authority at the time of signing the authority",
+        category: "Sales Authority",
+        name: "Where conjunctional listing occurs commission sharing must be reflected on the authority at the time of signing the authority",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Sales Authority - Marketing expenses reflect marketing schedule",
+        category: "Sales Authority",
+        name: "Marketing expenses reflect marketing schedule",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Estimated Selling Price - ESP reflects any appraisal price quoted to the vendor",
+        category: "Estimated Selling Price",
+        name: "ESP reflects any appraisal price quoted to the vendor",
+        subname:
+          "(If not, are there file notes explaining why there is a difference)",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Material Facts / Vendor Questionnaire - Confirmation of receiving the completed material facts and vendor questionnaire",
+        category: "Material Facts / Vendor Questionnaire",
+        name: "Confirmation of receiving the completed material facts and vendor questionnaire",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Material Facts / Vendor Questionnaire - If not received, proof of email sent to the vendor requesting the material facts to be completed",
+        category: "Material Facts / Vendor Questionnaire",
+        name: "If not received, proof of email sent to the vendor requesting the material facts to be completed",
+        subname: "(Save the email to the property file)",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Material Facts / Vendor Questionnaire - Sighting the CIV and making notes when applicable",
+        category: "Material Facts / Vendor Questionnaire",
+        name: "Sighting the CIV and making notes when applicable",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Comparable Sales - Of similar standard or condition to the property",
+        category: "Comparable Sales",
+        name: "Of similar standard or condition to the property",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Comparable Sales - Within a 2km radius of the property within metropolitan Melbourne or 5kms outside Metropolitan Melbourne",
+        category: "Comparable Sales",
+        name: "Within a 2km radius of the property within metropolitan Melbourne or 5kms outside Metropolitan Melbourne",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Comparable Sales - Sold within the preceding 6 months within Metropolitan Melbourne or 18 months outside Metropolitan Melbourne",
+        category: "Comparable Sales",
+        name: "Sold within the preceding 6 months within Metropolitan Melbourne or 18 months outside Metropolitan Melbourne",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Comparable Sales - If no comparable sales identified, is there a file note explaining how the agent determined the ESP?",
+        category: "Comparable Sales",
+        name: "If no comparable sales identified, is there a file note explaining how the agent determined the ESP?",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
@@ -122,37 +161,49 @@ const App: React.FC = () => {
     ],
     marketing: [
       {
-        name: "Marketing Schedule - Completed marketing schedule attached",
+        category: "Marketing Schedule",
+        name: "Completed marketing schedule attached",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Advertising - All advertising checked against known facts (e.g. property appraisal)",
+        category: "Advertising",
+        name: "All advertising checked against known facts (e.g. property appraisal)",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Advertising - Checked against vendor’s instructions and marketing schedule",
+        category: "Advertising",
+        name: "Checked against vendor's instructions and marketing schedule",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Advertising - Prices comply with Indicative Selling Price",
+        category: "Advertising",
+        name: "Prices comply with Indicative Selling Price",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Advertising - Search prices not below lowest ISP range",
+        category: "Advertising",
+        name: "Search prices not below lowest ISP range",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
-        name: "Advertising - Approval of marketing material given by vendor",
+        category: "Advertising",
+        name: "Approval of marketing material given by vendor",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
@@ -160,31 +211,41 @@ const App: React.FC = () => {
     ],
     selling: [
       {
-        name: "Revision of ESP - Detailed internal notes via RTA if ESP changes",
+        category: "Revision of ESP",
+        name: "Detailed internal notes via RTA if ESP changes",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
+        category: "",
         name: "Online Price Changes uploaded within 24 hours",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
+        category: "",
         name: "Correspondence - File notes on vendor price discussions maintained",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
+        category: "",
         name: "Offers - All offers maintained in the file",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
+        category: "",
         name: "Offers - Evidence of offers communicated to the vendor",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
@@ -192,25 +253,33 @@ const App: React.FC = () => {
     ],
     closing: [
       {
+        category: "",
         name: "Closing - Key sales documentation retained on file",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
+        category: "",
         name: "Closing - Section 32 signed and dated before contract",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
+        category: "",
         name: "Closing - Vendor reserve entered on authority day of auction",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
       },
       {
+        category: "",
         name: "Closing - Attach Bid Sheet / Record for auction",
+        subname: "",
         agent: "",
         reviewer: "",
         comments: "",
@@ -272,53 +341,57 @@ const App: React.FC = () => {
         {checklist[key].map((item, index) => (
           <div
             key={index}
-            className="bg-white p-4 rounded-xl shadow-sm border border-gray-200"
+            className="w-full p-4 bg-white border border-b-2 border-gray-200 rounded-lg space-y-2"
           >
-            <p className="font-medium text-gray-700 mb-3">{item.name}</p>
+            <p className="font-medium text-gray-700">{item.name}</p>
 
-            <div className="flex items-center flex-wrap gap-3 mb-3">
-              <span className="font-medium text-gray-600">Agent:</span>
-              {["Y", "N", "NA"].map((option) => (
-                <button
-                  key={option}
-                  className={`px-3 py-1 rounded-md border text-sm font-medium transition ${
-                    item.agent === option
-                      ? "bg-blue-600 text-white border-blue-600"
-                      : "border-gray-300 text-gray-700 hover:bg-gray-100"
-                  }`}
-                  onClick={() => updateChecklist(key, index, "agent", option)}
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
+            <div className="flex flex-wrap items-center gap-4 text-sm font-medium">
+              <div className="flex-1 flex items-center gap-2">
+                <span>Agent:</span>
+                {["Y", "N", "NA"].map((option) => (
+                  <button
+                    key={option}
+                    className={`h-8 min-w-[2rem] px-2 py-1 border rounded-md transition ${
+                      item.agent === option
+                        ? "border-blue-600 bg-blue-600 text-white"
+                        : "border-gray-300 hover:bg-gray-100"
+                    }`}
+                    onClick={() => updateChecklist(key, index, "agent", option)}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
 
-            <div className="flex items-center flex-wrap gap-3 mb-3">
-              <span className="font-medium text-gray-600">Reviewer:</span>
-              {["Y", "N", "NA"].map((option) => (
-                <button
-                  key={option}
-                  className={`px-3 py-1 rounded-md border text-sm font-medium transition ${
-                    item.reviewer === option
-                      ? "bg-green-600 text-white border-green-600"
-                      : "border-gray-300 text-gray-700 hover:bg-gray-100"
-                  }`}
-                  onClick={() =>
-                    updateChecklist(key, index, "reviewer", option)
-                  }
-                >
-                  {option}
-                </button>
-              ))}
+              <div className="flex-1 flex items-center gap-2">
+                <span>Reviewer:</span>
+                {["Y", "N", "NA"].map((option) => (
+                  <button
+                    key={option}
+                    className={`h-8 min-w-[2rem] px-2 py-1 border rounded-md transition ${
+                      item.reviewer === option
+                        ? "border-green-600 bg-green-600 text-white"
+                        : "border-gray-300 hover:bg-gray-100"
+                    }`}
+                    onClick={() =>
+                      updateChecklist(key, index, "reviewer", option)
+                    }
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
             </div>
 
             <textarea
+              className="outline-none w-full border border-gray-300 rounded-md p-3 mt-1 text-sm focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Comments"
+              rows={3}
+              name="comments"
               value={item.comments}
               onChange={(e) =>
                 updateChecklist(key, index, "comments", e.target.value)
               }
-              className="w-full border border-gray-300 rounded-md p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
         ))}
@@ -336,7 +409,7 @@ const App: React.FC = () => {
 
   return (
     <main className="h-auto w-full p-6">
-      <div className="h-auto w-full max-w-[794px] mx-auto px-4 py-16 space-y-16 bg-white">
+      <div className="h-auto w-full max-w-[794px] mx-auto px-6 py-16 space-y-16 bg-white/75">
         <div className="space-y-1">
           <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800">
             Compliance Sales Files Review Checklist
