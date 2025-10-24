@@ -723,7 +723,7 @@ const App: React.FC = () => {
   return (
     <main className="h-auto w-full p-0 sm:p-4 md:p-6 text-gray-800 bg-gray-300 text-sm sm:text-base">
       <>
-        <div className="h-auto w-full max-w-[794px] mx-auto px-6 py-12 sm:py-16 space-y-12 sm:space-y-16 bg-white/75">
+        <div className="h-auto w-full max-w-[794px] mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-12 sm:space-y-16 bg-white/75">
           <div className="space-y-1 text-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
               Compliance Sales Files Review Checklist
