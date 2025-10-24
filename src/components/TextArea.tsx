@@ -1,6 +1,6 @@
 import React from "react";
-import type { ChecklistItem } from "../types";
 import cn from "classnames";
+import type { ChecklistItem } from "../types";
 
 interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
