@@ -559,7 +559,7 @@ const App: React.FC = () => {
       </h2>
 
       <div className="space-y-4">
-        <h6 className="text-base sm:text-lg md:text-xl font-semibold text-gray-500">
+        <h6 className="text-base sm:text-lg md:text-xl leading-none font-semibold text-gray-500">
           {subtitle}
         </h6>
 
