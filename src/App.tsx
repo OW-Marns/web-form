@@ -27,6 +27,7 @@ const App: React.FC = () => {
   const [propertyAddress, setPropertyAddress] = useState<string>("");
   const [agentTeamName, setAgentTeamName] = useState<string>("");
 
+  // Checklist data structure
   const initialChecklistState: ChecklistSection = {
     listing: [
       {
@@ -538,11 +539,8 @@ const App: React.FC = () => {
     ],
   };
 
-  const [checklist, setChecklist] = useState<ChecklistSection>(
-    initialChecklistState
-  );
-
-  const [signOff, setSignOff] = useState<SignOff>({
+  // Signof data structure
+  const initialSignOffState: SignOff = {
     listing: {
       agentName: "",
       agentDate: "",
@@ -567,7 +565,15 @@ const App: React.FC = () => {
       reviewerName: "",
       reviewerDate: "",
     },
-  });
+  };
+
+  const [checklist, setChecklist] = useState<ChecklistSection>(
+    initialChecklistState
+  );
+
+  const [signOff, setSignOff] = useState<SignOff>(initialSignOffState);
+
+  const [notes, setNotes] = useState<string>("");
 
   const sections = Object.keys(
     initialChecklistState
@@ -590,6 +596,7 @@ const App: React.FC = () => {
       propertyAddress,
       agentTeamName,
       checklist,
+      notes,
       signOff,
     };
 
@@ -620,6 +627,21 @@ const App: React.FC = () => {
 
   const buttonCommonStyles = "h-auto w-fit px-4 py-2 rounded-md";
 
+  const currentSection = sections[currentPage];
+  const sectionTitles: Record<keyof ChecklistSection, string> = {
+    listing: "Sales File",
+    marketing: "Marketing",
+    selling: "Selling Campaign",
+    closing: "Closing Off Sales File",
+  };
+
+  const sectionSubtitles: Record<keyof ChecklistSection, string> = {
+    listing: "Listing Documentation",
+    marketing: "Marketing Checklist",
+    selling: "Selling Campaign Process",
+    closing: "Closing Off Sales Process",
+  };
+
   const renderSection = (
     title: string,
     subtitle: string,
@@ -630,6 +652,7 @@ const App: React.FC = () => {
         {title}
       </h2>
 
+      {/* Main section form */}
       <div className="space-y-4">
         <h6 className="text-base sm:text-lg md:text-xl leading-none font-semibold text-gray-500">
           {subtitle}
@@ -699,6 +722,7 @@ const App: React.FC = () => {
         ))}
       </div>
 
+      {/* Agent and Reviewer */}
       <div className="w-full p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3">
         <div className="grid grid-rows-4 sm:grid-rows-2 grid-flow-col gap-4">
           <div className="flex-1">
@@ -774,23 +798,26 @@ const App: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Notes under selling section */}
+      {currentSection === "selling" && (
+        <div className="w-full p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3">
+          <div className="w-full flex flex-col gap-1">
+            <label className="block text-sm font-medium text-gray-600">
+              Notes:
+            </label>
+            <textarea
+              rows={10}
+              name="notes"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              className={inputCommonStyles + " text-sm"}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
-
-  const currentSection = sections[currentPage];
-  const sectionTitles: Record<keyof ChecklistSection, string> = {
-    listing: "Sales File",
-    marketing: "Marketing",
-    selling: "Selling Campaign",
-    closing: "Closing Off Sales File",
-  };
-
-  const sectionSubtitles: Record<keyof ChecklistSection, string> = {
-    listing: "Listing Documentation",
-    marketing: "Marketing Checklist",
-    selling: "Selling Campaign Process",
-    closing: "Closing Off Sales Process",
-  };
 
   return (
     <main className="h-auto w-full p-0 sm:p-4 md:p-6 text-gray-800 bg-gray-300 text-sm sm:text-base">
