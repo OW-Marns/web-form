@@ -36,6 +36,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF YES - BOXNDICE LINK REQUIRED TO BE ABLE TO VIEW COMMENTS.",
       },
       {
         category: "Appraisals",
@@ -44,6 +46,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF YES - BOXNDICE LINK REQUIRED TO BE ABLE TO VIEW COMMENTS.",
       },
       {
         category: "Appraisals",
@@ -52,6 +56,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF YES, ABILITY TO ATTACH THE CMA REPORT. IF NO, CANNOT PROCEED RED FLAG - REQUIRES A COMMENTS FIELD FOR FURTHER EXPLAINATION; ABIITY TO ATTACH A FILE WILL ALSO BE REQUIRED.",
       },
       {
         category: "Appraisals",
@@ -60,6 +66,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "IF YES, ABIITY TO ATTACH FILE OF MUTLIPLE APPRAISALS.",
       },
       {
         category: "Sales Authority",
@@ -68,6 +75,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Sales Authority",
@@ -76,6 +84,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, REG FLAG NEEDS TO ACTIONED AND THEN REVERTS TO YES.",
       },
       {
         category: "Sales Authority",
@@ -84,6 +94,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Sales Authority",
@@ -92,6 +103,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF YES, IT NEEDS TO BE IN THE AUTHOIRTY. ABILITY TO ATTACH THE AUHTOITRY HERE TO VIEW CORRECTION IS REQUIRED. IF NOT RED FLAD.",
       },
       {
         category: "Sales Authority",
@@ -100,6 +113,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Estimated Selling Price",
@@ -108,6 +122,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, RED FLAG, NOTES NEED TO BE ADDED TO PROCEED TO THE NEXT QUESTION.",
       },
       {
         category: "Material Facts / Vendor Questionnaire",
@@ -116,6 +132,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "IF YES ABILITY TO ATTACH FILE.",
       },
       {
         category: "Material Facts / Vendor Questionnaire",
@@ -124,6 +141,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, RED FLAG NEE TO ATTACH FILE BEOFRE PROCEEDING TO NEXT QUESTION.",
       },
       {
         category: "Material Facts / Vendor Questionnaire",
@@ -132,6 +151,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF YES, NEED TO ATTACHED FILE. IF NO, COMMENTS FIELD REQUIRED.",
       },
       {
         category:
@@ -141,6 +162,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category:
@@ -150,6 +172,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category:
@@ -159,6 +182,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category:
@@ -168,6 +192,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, RED FLAG - COMMENTS FIELD REQUIRED TO BE FILED OUT.",
       },
       {
         category:
@@ -177,6 +203,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category:
@@ -186,6 +213,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, CANNOT PROCEEDUNLESS  COMMENT FIELD IS USED FOR EXPLANATION.",
       },
       {
         category:
@@ -195,6 +224,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, COMPLUSORY COMMENTS FIELD REQUIRED IN ORDER TO PROCEED.",
       },
       {
         category:
@@ -204,6 +235,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, COMPLUSORY COMMENTS FIELD REQUIRED IN ORDER TO PROCEED.",
       },
       {
         category:
@@ -213,6 +246,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, COMPLUSORY COMMENTS FIELD REQUIRED IN ORDER TO PROCEED.",
       },
       {
         category:
@@ -222,6 +257,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, COMPLUSORY COMMENTS FIELD REQUIRED IN ORDER TO PROCEED.",
       },
       {
         category:
@@ -231,6 +268,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category:
@@ -240,6 +278,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Commission & Sharing",
@@ -248,6 +287,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, NEEDS TO BE ACTIONED AND ATTACH FILE TO PROVE ITS A CORRECT.",
       },
       {
         category: "Consideration of Offers",
@@ -256,6 +297,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "IF YES, ABILITY TO ATTACH THE FILE.",
       },
       {
         category: "Power of Attorney",
@@ -264,6 +306,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "IF YES, ABILITY TO ATTACH THE FILE.",
       },
       {
         category: "Proof of Ownership",
@@ -272,6 +315,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "IF YES, ABILITY TO ATTACH THE FILE.",
       },
     ],
     marketing: [
@@ -282,6 +326,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Advertising",
@@ -290,6 +335,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Advertising",
@@ -298,6 +344,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Advertising",
@@ -306,6 +353,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Advertising",
@@ -314,6 +362,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Advertising",
@@ -322,6 +371,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
     ],
     selling: [
@@ -332,6 +382,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF NO, CANNOT PROCEED NEEDSA  RED FLAG ATTENTIONED  TO COMPLIANCE MANAGER.",
       },
       {
         category: "Online Price Changes",
@@ -340,6 +392,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Correspondence",
@@ -348,6 +401,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF YES, ABILITY TO ATTACH FILE OR ADD A HYPERLINK TO BOX N DICE. IF NO CANNOT PROCEED. IF N/A PROCEED TO NEXT QUESTION.",
       },
       {
         category: "Offers",
@@ -356,6 +411,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "IF NO, CANNOT PROCCED UNTIL A FILE  HAS  BEEN ATTACHED.",
       },
       {
         category: "Offers",
@@ -364,6 +420,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "ABILITY TO ATTACH FILE IF YES OR NO.C CANNOT PROCEED TO NEXT QUESTION. IF N/A CAN PROCEED.",
       },
       {
         category: "Offers",
@@ -372,6 +430,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF YES, ABILITY TO ATTACH FILE, IF NO, CANNOT PROCEED TO NEXT QUESTION. IF N/A PROCEED TO NEXT QUESTION.",
       },
       {
         category: "Offers",
@@ -380,6 +440,8 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText:
+          "IF YES, ABILITY TO ATTACH FILE. IF NO CANNOT PROCEED. IF N/A PROCEED.",
       },
     ],
     closing: [
@@ -390,6 +452,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Closing",
@@ -398,6 +461,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "COMPULSORY - ABILITY TO ATTACH CONTRACT OF SALE.",
       },
       {
         category: "Closing",
@@ -406,6 +470,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Closing",
@@ -414,6 +479,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "IF YES, ABILITY TO ATTACH BID SHEET.",
       },
       {
         category: "Closing",
@@ -422,6 +488,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Closing",
@@ -430,6 +497,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Closing",
@@ -438,6 +506,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Closing",
@@ -446,6 +515,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Closing",
@@ -454,6 +524,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
       {
         category: "Closing",
@@ -462,6 +533,7 @@ const App: React.FC = () => {
         agent: "",
         reviewer: "",
         comments: "",
+        helperText: "",
       },
     ],
   };
@@ -610,16 +682,19 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <textarea
-              className={inputCommonStyles + " text-sm"}
-              rows={3}
-              name="comments"
-              placeholder="Comments"
-              value={item.comments}
-              onChange={(e) =>
-                updateChecklist(key, index, "comments", e.target.value)
-              }
-            />
+            <div className="w-full flex flex-col gap-1">
+              <textarea
+                className={inputCommonStyles + " text-sm"}
+                rows={2}
+                name="comments"
+                placeholder="Comments"
+                value={item.comments}
+                onChange={(e) =>
+                  updateChecklist(key, index, "comments", e.target.value)
+                }
+              />
+              <span className="text-xs text-gray-500">{item.helperText}</span>
+            </div>
           </div>
         ))}
       </div>
