@@ -22,6 +22,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
           Notes:
         </label>
       )}
+
       <textarea
         {...restProps}
         rows={rows}
@@ -30,6 +31,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
           className
         )}
       />
+
       {helperText && (
         <span className="text-xs text-gray-500">{helperText}</span>
       )}
