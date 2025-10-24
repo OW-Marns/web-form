@@ -7,6 +7,7 @@ interface ChecklistItem {
   agent: string;
   reviewer: string;
   comments: string;
+  helperText: string;
 }
 
 interface ChecklistSection {
