@@ -568,12 +568,7 @@ const App: React.FC = () => {
             key={index}
             className="w-full p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3"
           >
-            <p
-              className="text-sm text-gray-500 italic"
-              style={{ fontStyle: "italic" }}
-            >
-              {item.category}
-            </p>
+            <p className="text-sm text-gray-500 italic">{item.category}</p>
 
             <p className="font-medium">{item.name}</p>
 
