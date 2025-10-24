@@ -4,16 +4,24 @@ import cn from "classnames";
 
 interface TextAreaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    Pick<ChecklistItem, "helperText"> {}
+    Pick<ChecklistItem, "helperText"> {
+  label?: string;
+}
 
 export const TextArea: React.FC<TextAreaProps> = ({
   className,
+  label,
   helperText,
   rows = 2,
   ...restProps
 }) => {
   return (
     <div className="w-full flex flex-col gap-1">
+      {label && (
+        <label className="block text-sm font-medium text-gray-600">
+          Notes:
+        </label>
+      )}
       <textarea
         {...restProps}
         rows={rows}

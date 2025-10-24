@@ -3,6 +3,7 @@ import type { ChecklistSection, SignOff } from "./types";
 import { initialChecklistState, initialSignOffState } from "./data";
 import { Card } from "./components/Card";
 import { CheckList } from "./components/CheckList";
+import { TextArea } from "./components/TextArea";
 
 const App: React.FC = () => {
   const [propertyAddress, setPropertyAddress] = useState<string>("");
@@ -178,18 +179,14 @@ const App: React.FC = () => {
       {/* Notes under selling section */}
       {currentSection === "selling" && (
         <Card id="notes-card">
-          <div className="w-full flex flex-col gap-1">
-            <label className="block text-sm font-medium text-gray-600">
-              Notes:
-            </label>
-            <textarea
-              rows={10}
-              name="notes"
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              className={inputCommonStyles + " text-sm"}
-            />
-          </div>
+          <TextArea
+            id="notes"
+            name="notes"
+            label="Notes"
+            rows={10}
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          />
         </Card>
       )}
     </div>
