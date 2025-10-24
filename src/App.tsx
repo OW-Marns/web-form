@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import type { ChecklistItem, ChecklistSection, SignOff } from "./types";
 import { initialChecklistState, initialSignOffState } from "./data";
 import { Card } from "./components/Card";
+import { TextArea } from "./components/TextArea";
 
 const App: React.FC = () => {
   const [propertyAddress, setPropertyAddress] = useState<string>("");
@@ -141,19 +142,15 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="w-full flex flex-col gap-1">
-              <textarea
-                className={inputCommonStyles + " text-sm"}
-                rows={2}
-                name="comments"
-                placeholder="Comments"
-                value={item.comments}
-                onChange={(e) =>
-                  updateChecklist(key, index, "comments", e.target.value)
-                }
-              />
-              <span className="text-xs text-gray-500">{item.helperText}</span>
-            </div>
+            <TextArea
+              id={"comment-" + (index + 1)}
+              placeholder="Comments"
+              helperText={item.helperText}
+              value={item.comments}
+              onChange={(e) =>
+                updateChecklist(key, index, "comments", e.target.value)
+              }
+            />
           </Card>
         ))}
       </div>
