@@ -521,24 +521,26 @@ const App: React.FC = () => {
       signOff,
     };
 
-    try {
-      const response = await fetch("https://your-api-endpoint.com/checklists", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+    console.log("Submitting payload:", JSON.stringify(payload, null, 2));
 
-      if (!response.ok) {
-        throw new Error("RES: Failed to submit form.");
-      }
+    // try {
+    //   const response = await fetch("https://your-api-endpoint.com/checklists", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(payload),
+    //   });
 
-      alert("Checklist submitted successfully!");
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("There was an error submitting the checklist.");
-    }
+    //   if (!response.ok) {
+    //     throw new Error("RES: Failed to submit form.");
+    //   }
+
+    //   alert("Checklist submitted successfully!");
+    // } catch (error) {
+    //   console.error("Error submitting form:", error);
+    //   alert("There was an error submitting the checklist.");
+    // }
   };
 
   const inputCommonStyles =
