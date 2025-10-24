@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import type { ChecklistItem, ChecklistSection, SignOff } from "./types";
+import type { ChecklistSection, SignOff } from "./types";
 import { initialChecklistState, initialSignOffState } from "./data";
 import { Card } from "./components/Card";
-import { TextArea } from "./components/TextArea";
+import { CheckList } from "./components/CheckList";
 
 const App: React.FC = () => {
   const [propertyAddress, setPropertyAddress] = useState<string>("");
@@ -70,18 +70,6 @@ const App: React.FC = () => {
     closing: "Closing Off Sales Process",
   };
 
-  // Update checklist
-  const updateChecklist = (
-    section: keyof ChecklistSection,
-    index: number,
-    field: keyof ChecklistItem,
-    value: string
-  ) => {
-    const updatedSection = [...checklist[section]];
-    updatedSection[index][field] = value;
-    setChecklist({ ...checklist, [section]: updatedSection });
-  };
-
   const renderSection = (
     title: string,
     subtitle: string,
@@ -92,66 +80,21 @@ const App: React.FC = () => {
         {title}
       </h2>
 
-      {/* Main section form */}
+      {/* Main section checklist form */}
       <div className="space-y-4">
         <h6 className="text-base sm:text-lg md:text-xl leading-none font-semibold text-gray-500">
           {subtitle}
         </h6>
 
         {checklist[key].map((item, index) => (
-          <Card id="checklist-card" key={index}>
-            <p className="text-sm text-gray-500 italic">{item.category}</p>
-
-            <p className="font-medium">{item.name}</p>
-
-            <div className="flex flex-wrap items-center gap-4 text-sm font-medium">
-              <div className="flex-1 flex items-center gap-2">
-                <span>Agent:</span>
-                {["Y", "N", "NA"].map((option) => (
-                  <button
-                    key={option}
-                    className={`h-7 min-w-[1.75rem] px-2 border rounded-md transition ${
-                      item.agent === option
-                        ? "border-sky-600 bg-sky-600 text-white"
-                        : "border-gray-300 hover:bg-gray-100"
-                    }`}
-                    onClick={() => updateChecklist(key, index, "agent", option)}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-
-              <div className="flex-1 flex items-center gap-2">
-                <span>Reviewer:</span>
-                {["Y", "N", "NA"].map((option) => (
-                  <button
-                    key={option}
-                    className={`h-7 min-w-[1.75rem] px-2 border rounded-md transition ${
-                      item.reviewer === option
-                        ? "border-emerald-600 bg-emerald-600 text-white"
-                        : "border-gray-300 hover:bg-gray-100"
-                    }`}
-                    onClick={() =>
-                      updateChecklist(key, index, "reviewer", option)
-                    }
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <TextArea
-              id={"comment-" + (index + 1)}
-              placeholder="Comments"
-              helperText={item.helperText}
-              value={item.comments}
-              onChange={(e) =>
-                updateChecklist(key, index, "comments", e.target.value)
-              }
-            />
-          </Card>
+          <CheckList
+            key={index}
+            sectionIndex={index}
+            sectionKey={key}
+            checklist={item}
+            stateChecklist={checklist}
+            stateSetChecklist={setChecklist}
+          />
         ))}
       </div>
 
