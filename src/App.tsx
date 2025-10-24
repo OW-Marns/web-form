@@ -553,7 +553,7 @@ const App: React.FC = () => {
     subtitle: string,
     key: keyof ChecklistSection
   ) => (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center">
         {title}
       </h2>
