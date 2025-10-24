@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import type { ChecklistItem, ChecklistSection, SignOff } from "./types";
 import { initialChecklistState, initialSignOffState } from "./data";
+import { Card } from "./components/Card";
 
 const App: React.FC = () => {
   const [propertyAddress, setPropertyAddress] = useState<string>("");
@@ -97,10 +98,7 @@ const App: React.FC = () => {
         </h6>
 
         {checklist[key].map((item, index) => (
-          <div
-            key={index}
-            className="w-full p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3"
-          >
+          <Card id="checklist-card" key={index}>
             <p className="text-sm text-gray-500 italic">{item.category}</p>
 
             <p className="font-medium">{item.name}</p>
@@ -156,12 +154,12 @@ const App: React.FC = () => {
               />
               <span className="text-xs text-gray-500">{item.helperText}</span>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
 
       {/* Agent and Reviewer */}
-      <div className="w-full p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3">
+      <Card id="agent-reviewer-card">
         <div className="grid grid-rows-4 sm:grid-rows-2 grid-flow-col gap-4">
           <div className="flex-1">
             <label className="block text-sm font-medium text-gray-600 mb-1">
@@ -235,11 +233,11 @@ const App: React.FC = () => {
             />
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Notes under selling section */}
       {currentSection === "selling" && (
-        <div className="w-full p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3">
+        <Card id="notes-card">
           <div className="w-full flex flex-col gap-1">
             <label className="block text-sm font-medium text-gray-600">
               Notes:
@@ -252,7 +250,7 @@ const App: React.FC = () => {
               className={inputCommonStyles + " text-sm"}
             />
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );
