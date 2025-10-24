@@ -14,6 +14,15 @@ interface ChecklistSection {
   [key: string]: ChecklistItem[];
 }
 
+interface SignOff {
+  [key: string]: {
+    agentName: string;
+    agentDate: string;
+    reviewerName: string;
+    reviewerDate: string;
+  };
+}
+
 const App: React.FC = () => {
   const [propertyAddress, setPropertyAddress] = useState<string>("");
   const [agentTeamName, setAgentTeamName] = useState<string>("");
@@ -461,6 +470,33 @@ const App: React.FC = () => {
     initialChecklistState
   );
 
+  const [signOff, setSignOff] = useState<SignOff>({
+    listing: {
+      agentName: "",
+      agentDate: "",
+      reviewerName: "",
+      reviewerDate: "",
+    },
+    marketing: {
+      agentName: "",
+      agentDate: "",
+      reviewerName: "",
+      reviewerDate: "",
+    },
+    selling: {
+      agentName: "",
+      agentDate: "",
+      reviewerName: "",
+      reviewerDate: "",
+    },
+    closing: {
+      agentName: "",
+      agentDate: "",
+      reviewerName: "",
+      reviewerDate: "",
+    },
+  });
+
   const sections = Object.keys(
     initialChecklistState
   ) as (keyof ChecklistSection)[];
@@ -482,6 +518,7 @@ const App: React.FC = () => {
       propertyAddress,
       agentTeamName,
       checklist,
+      signOff,
     };
 
     try {
@@ -588,6 +625,82 @@ const App: React.FC = () => {
             />
           </div>
         ))}
+      </div>
+
+      <div className="w-full p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3">
+        <div className="grid grid-rows-4 sm:grid-rows-2 grid-flow-col gap-4">
+          <div className="flex-1">
+            <label className="block text-sm font-medium text-gray-600 mb-1">
+              Name of Agent completing form:
+            </label>
+            <input
+              type="text"
+              name="agent-name"
+              value={signOff[key].agentName}
+              onChange={(e) =>
+                setSignOff((prev) => ({
+                  ...prev,
+                  [key]: { ...prev[key], agentName: e.target.value },
+                }))
+              }
+              placeholder="Enter agent name"
+              className={inputCommonStyles}
+            />
+          </div>
+
+          <div className="flex-1">
+            <label className="block text-sm font-medium text-gray-600 mb-1">
+              Date:
+            </label>
+            <input
+              type="date"
+              value={signOff[key].agentDate}
+              onChange={(e) =>
+                setSignOff((prev) => ({
+                  ...prev,
+                  [key]: { ...prev[key], agentDate: e.target.value },
+                }))
+              }
+              className={inputCommonStyles}
+            />
+          </div>
+
+          <div className="flex-1">
+            <label className="block text-sm font-medium text-gray-600 mb-1">
+              Name of Reviewer completing form:
+            </label>
+            <input
+              type="text"
+              name="reviewer-name"
+              value={signOff[key].reviewerName}
+              onChange={(e) =>
+                setSignOff((prev) => ({
+                  ...prev,
+                  [key]: { ...prev[key], reviewerName: e.target.value },
+                }))
+              }
+              placeholder="Enter reviewer name"
+              className={inputCommonStyles}
+            />
+          </div>
+
+          <div className="flex-1">
+            <label className="block text-sm font-medium text-gray-600 mb-1">
+              Date:
+            </label>
+            <input
+              type="date"
+              value={signOff[key].reviewerDate}
+              onChange={(e) =>
+                setSignOff((prev) => ({
+                  ...prev,
+                  [key]: { ...prev[key], reviewerDate: e.target.value },
+                }))
+              }
+              className={inputCommonStyles}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
