@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import type { ChecklistSection, SignOff } from "./types";
 import { initialChecklistState, initialSignOffState } from "./data";
+
 import { Card } from "./components/Card";
 import { CheckList } from "./components/CheckList";
 import { TextArea } from "./components/TextArea";
+import { Button } from "./components/Button";
 
 const App: React.FC = () => {
   const [propertyAddress, setPropertyAddress] = useState<string>("");
@@ -48,8 +50,6 @@ const App: React.FC = () => {
 
   const inputCommonStyles =
     "outline-none w-full border border-gray-300 rounded-md p-3 focus:ring-1 focus:ring-sky-500 focus:border-sky-500";
-
-  const buttonCommonStyles = "h-auto w-fit px-4 py-2 rounded-md";
 
   const sections = Object.keys(
     initialChecklistState
@@ -244,36 +244,32 @@ const App: React.FC = () => {
           )}
 
           <div className="flex items-center justify-between">
-            <button
+            <Button
+              label="Previous"
+              color={currentPage === 0 ? "neutral" : "primary"}
+              variant="outline"
               disabled={currentPage === 0}
               onClick={() => setCurrentPage((prev) => prev - 1)}
-              className={`${buttonCommonStyles} border ${
-                currentPage === 0
-                  ? "text-gray-300 border-gray-200 cursor-not-allowed"
-                  : "text-sky-600 border-sky-600 hover:bg-sky-50"
-              }`}
-            >
-              Previous
-            </button>
+            />
 
             <div className="text-center text-sm text-gray-500">
               Page {currentPage + 1} of {sections.length}
             </div>
 
             {currentPage < sections.length - 1 ? (
-              <button
+              <Button
+                label="Next"
+                color="primary"
+                variant="solid"
                 onClick={() => setCurrentPage((prev) => prev + 1)}
-                className={`${buttonCommonStyles} bg-sky-600 text-white hover:bg-sky-700`}
-              >
-                Next
-              </button>
+              />
             ) : (
-              <button
+              <Button
+                label="Submit"
+                color="success"
+                variant="solid"
                 onClick={handleSubmit}
-                className={`${buttonCommonStyles} bg-emerald-600 text-white hover:bg-emerald-700`}
-              >
-                Submit
-              </button>
+              />
             )}
           </div>
         </div>
