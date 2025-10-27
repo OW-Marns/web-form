@@ -183,6 +183,7 @@ const App: React.FC = () => {
             </p>
           </div>
 
+          {/* Agent Team Name & Property Address */}
           <div className="space-y-3 sm:space-y-4">
             <Input
               type="text"
@@ -204,12 +205,14 @@ const App: React.FC = () => {
             />
           </div>
 
+          {/* Render Checklist */}
           {renderSection(
             sectionTitles[currentSection],
             sectionSubtitles[currentSection],
             currentSection
           )}
 
+          {/* Pagination */}
           <div className="flex items-center justify-between">
             <Button
               label="Previous"
