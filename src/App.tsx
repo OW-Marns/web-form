@@ -112,7 +112,6 @@ const App: React.FC = () => {
               }))
             }
           />
-
           <Input
             type="date"
             id="agent-date"
@@ -125,7 +124,6 @@ const App: React.FC = () => {
               }))
             }
           />
-
           <Input
             type="text"
             id="reviewer-name"
@@ -138,7 +136,6 @@ const App: React.FC = () => {
               }))
             }
           />
-
           <Input
             type="date"
             id="reviewer-date"
