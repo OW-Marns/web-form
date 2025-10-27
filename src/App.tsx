@@ -49,9 +49,6 @@ const App: React.FC = () => {
     // }
   };
 
-  const inputCommonStyles =
-    "outline-none w-full border border-gray-300 rounded-md p-3 focus:ring-1 focus:ring-sky-500 focus:border-sky-500";
-
   const sections = Object.keys(
     initialChecklistState
   ) as (keyof ChecklistSection)[];
@@ -103,77 +100,57 @@ const App: React.FC = () => {
       {/* Agent and Reviewer */}
       <Card id="agent-reviewer-card">
         <div className="grid grid-rows-4 sm:grid-rows-2 grid-flow-col gap-4">
-          <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-600 mb-1">
-              Name of Agent completing form:
-            </label>
-            <input
-              type="text"
-              name="agent-name"
-              value={signOff[key].agentName}
-              onChange={(e) =>
-                setSignOff((prev) => ({
-                  ...prev,
-                  [key]: { ...prev[key], agentName: e.target.value },
-                }))
-              }
-              placeholder="Enter agent name"
-              className={inputCommonStyles}
-            />
-          </div>
+          <Input
+            type="text"
+            id="agent-name"
+            label="Name of Agent completing form:"
+            value={signOff[key].agentName}
+            onChange={(e) =>
+              setSignOff((prev) => ({
+                ...prev,
+                [key]: { ...prev[key], agentName: e.target.value },
+              }))
+            }
+          />
 
-          <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-600 mb-1">
-              Date:
-            </label>
-            <input
-              type="date"
-              value={signOff[key].agentDate}
-              onChange={(e) =>
-                setSignOff((prev) => ({
-                  ...prev,
-                  [key]: { ...prev[key], agentDate: e.target.value },
-                }))
-              }
-              className={inputCommonStyles}
-            />
-          </div>
+          <Input
+            type="date"
+            id="agent-date"
+            label="Date:"
+            value={signOff[key].agentDate}
+            onChange={(e) =>
+              setSignOff((prev) => ({
+                ...prev,
+                [key]: { ...prev[key], agentDate: e.target.value },
+              }))
+            }
+          />
 
-          <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-600 mb-1">
-              Name of Reviewer completing form:
-            </label>
-            <input
-              type="text"
-              name="reviewer-name"
-              value={signOff[key].reviewerName}
-              onChange={(e) =>
-                setSignOff((prev) => ({
-                  ...prev,
-                  [key]: { ...prev[key], reviewerName: e.target.value },
-                }))
-              }
-              placeholder="Enter reviewer name"
-              className={inputCommonStyles}
-            />
-          </div>
+          <Input
+            type="text"
+            id="reviewer-name"
+            label="Name of Reviewer completing form:"
+            value={signOff[key].reviewerName}
+            onChange={(e) =>
+              setSignOff((prev) => ({
+                ...prev,
+                [key]: { ...prev[key], reviewerName: e.target.value },
+              }))
+            }
+          />
 
-          <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-600 mb-1">
-              Date:
-            </label>
-            <input
-              type="date"
-              value={signOff[key].reviewerDate}
-              onChange={(e) =>
-                setSignOff((prev) => ({
-                  ...prev,
-                  [key]: { ...prev[key], reviewerDate: e.target.value },
-                }))
-              }
-              className={inputCommonStyles}
-            />
-          </div>
+          <Input
+            type="date"
+            id="reviewer-date"
+            label="Date:"
+            value={signOff[key].reviewerDate}
+            onChange={(e) =>
+              setSignOff((prev) => ({
+                ...prev,
+                [key]: { ...prev[key], reviewerDate: e.target.value },
+              }))
+            }
+          />
         </div>
       </Card>
 
