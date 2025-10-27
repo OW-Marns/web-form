@@ -3,9 +3,10 @@ import type { ChecklistSection, SignOff } from "./types";
 import { initialChecklistState, initialSignOffState } from "./data";
 
 import { Card } from "./components/Card";
-import { CheckList } from "./components/CheckList";
-import { TextArea } from "./components/TextArea";
+import { Input } from "./components/Input";
 import { Button } from "./components/Button";
+import { TextArea } from "./components/TextArea";
+import { CheckList } from "./components/CheckList";
 
 const App: React.FC = () => {
   const [propertyAddress, setPropertyAddress] = useState<string>("");
@@ -182,7 +183,7 @@ const App: React.FC = () => {
           <TextArea
             id="notes"
             name="notes"
-            label="Notes"
+            label="Notes:"
             rows={10}
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
@@ -206,35 +207,24 @@ const App: React.FC = () => {
           </div>
 
           <div className="space-y-3 sm:space-y-4">
-            <div className="flex-1 flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3">
-              <label htmlFor="property-address" className="min-w-[160px]">
-                Property Address
-              </label>
-              <input
-                type="text"
-                id="property-address"
-                name="property-address"
-                placeholder="Property Address"
-                value={propertyAddress}
-                onChange={(e) => setPropertyAddress(e.target.value)}
-                className={inputCommonStyles}
-              />
-            </div>
-
-            <div className="flex-1 flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3">
-              <label htmlFor="agent-name-team" className="min-w-[160px]">
-                Name of Agent / Team
-              </label>
-              <input
-                type="text"
-                id="agent-name-team"
-                name="agent-name-team"
-                placeholder="Name of Agent / Team"
-                value={agentTeamName}
-                onChange={(e) => setAgentTeamName(e.target.value)}
-                className={inputCommonStyles}
-              />
-            </div>
+            <Input
+              type="text"
+              id="property-address"
+              label="Property Address"
+              parentClassname="sm:flex-row sm:items-center gap-0.5 sm:gap-3"
+              labelClassname="min-w-[160px] sm:text-base"
+              value={propertyAddress}
+              onChange={(e) => setPropertyAddress(e.target.value)}
+            />
+            <Input
+              type="text"
+              id="agent-name-team"
+              label="Name of Agent / Team"
+              parentClassname="sm:flex-row sm:items-center gap-0.5 sm:gap-3"
+              labelClassname="min-w-[160px] sm:text-base"
+              value={agentTeamName}
+              onChange={(e) => setAgentTeamName(e.target.value)}
+            />
           </div>
 
           {renderSection(
