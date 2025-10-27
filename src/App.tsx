@@ -83,7 +83,7 @@ const App: React.FC = () => {
       </h2>
 
       {/* Main section checklist form */}
-      <div className="space-y-4">
+      <div className="space-y-2 sm:space-y-4">
         <h6 className="text-base sm:text-lg md:text-xl leading-none font-semibold text-gray-500">
           {subtitle}
         </h6>

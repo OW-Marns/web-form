@@ -9,7 +9,7 @@ export const Card: React.FC<CardProps> = (props) => {
       id={props.id}
       className={cn(
         "CARD",
-        "w-full p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3",
+        "w-full p-4 sm:p-6 bg-white border border-b-2 border-gray-200 rounded-lg space-y-3",
         props.className
       )}
     >
